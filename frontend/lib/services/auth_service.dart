@@ -10,9 +10,6 @@ class AuthService {
 
   Future<String?> signInWithGoogle() async {
   try {
-    // ⛔ najpierw wyloguj aktywne konto (jeśli istnieje)
-    await _googleSignIn.signOut();
-
     final account = await _googleSignIn.signIn();
     final auth = await account?.authentication;
     final token = auth?.idToken;
